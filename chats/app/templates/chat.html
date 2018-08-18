@@ -1,0 +1,66 @@
+<!--Loader Area-->
+<div class="loaderArea" data-ng-if="loading">
+    <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+</div>
+<div class="headerTitle" data-ng-bind="messageData.recieverName"></div>
+<div class="pageContainer">
+    <div class="chatContentArea">
+        <div class="chatListArea">
+            <div layout="row" layout-padding data-ng-repeat="chat in chatList" data-ng-class="{'layout-align-end-end':chat.fromUser == messageData.fromUser}" id="chat{{chat.msgId}}">
+                <!--<div><i class="material-icons">email</i></div>-->
+                <div class="msgArea" data-ng-class="{'changeColor':chat.fromUser == messageData.fromUser}">
+                    <div class="triangle-left" data-ng-if="chat.fromUser != messageData.fromUser"></div>
+                    <div class="triangle-right" data-ng-if="chat.fromUser == messageData.fromUser"></div>
+                    <!--<div class="msgNameArea">
+                        <div data-ng-bind="chat.recieverName" data-ng-if="chat.fromUser != messageData.fromUser"> </div>
+                        <div data-ng-bind="chat.senderName" data-ng-if="chat.fromUser == messageData.fromUser"> </div>
+                    </div>-->
+                    <div class="msgTextArea" data-ng-bind="chat.message"></div>
+                    <div class="msgDateArea">
+                        <span data-ng-bind="chat.postedDate | date:'dd MMM yyyy'"> </span>
+                        <span data-ng-bind="chat.postedDate | date:'HH:mm'"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="chatInputArea">
+            <form name="from" data-ng-submit="sendMessage($event)">
+                <div class="chatArea">
+                    <div class="msgInputArea">
+                        <div class="inputInnerArea">
+                            <md-input-container class="md-block m0">
+                                <label>Type a message here</label>
+                                <input data-ng-model="messageData.message" type="text" data-ng-blur="userTyping()" id="chatInput">
+                            </md-input-container>
+                        </div>
+                    </div>
+                    <div data-ng-if="messageData.message.length > 0" class="msgSubmitArea animationIf">
+                        <div class="">
+                            <md-button class="md-icon-button md-primary" aria-label="send" type="submit">
+                                <i class="material-icons" style="font-size: 35px;">send</i>
+                            </md-button>
+                        </div>
+                    </div>
+                </div>
+
+                <!--<div layout="row" layout-padding>
+                    <div flex="90">
+                        <div class="inputInnerArea">
+                            <md-input-container class="md-block m0">
+                                <label>Type a message here</label>
+                                <input data-ng-model="messageData.message" type="text" data-ng-blur="userTyping()">
+                            </md-input-container>
+                        </div>
+                    </div>
+                    <div flex="5" data-ng-if="messageData.message.length > 0" class="animationIf">
+                        <div class="msgSubmitArea">
+                            <md-button class="md-icon-button md-primary" aria-label="send" type="submit">
+                                <i class="material-icons" style="font-size: 35px;">send</i>
+                            </md-button>
+                        </div>
+                    </div>
+                </div>-->
+            </form>
+        </div>
+    </div>
+</div>

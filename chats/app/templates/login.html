@@ -1,0 +1,103 @@
+<!--Loader Area-->
+<div class="loaderArea" data-ng-if="loading">
+    <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+</div>
+<div class="registerPageContainer">
+    <div class="registerInputArea animationIf" data-ng-if="showLoginArea">
+        <!--<md-button class="md-raised md-primary" type="button" data-ng-click="createFile($event)">Create File</md-button>
+        <md-button class="md-raised md-primary" type="button" data-ng-click="updateFile($event)">Update File</md-button>
+        <md-button class="md-raised md-primary" type="button" data-ng-click="appendFile($event)">Append File</md-button>-->
+        <h1 class="tac lh10">Login Here</h1>
+        <form name="loginForm" data-ng-submit="login()">
+            <div class="inputArea">
+                <div class="inputInnerArea">
+                    <md-input-container class="md-block m0">
+                        <label>Email</label>
+                        <input data-ng-model="register.email" type="email" name="email">
+                    </md-input-container>
+                </div>
+                <div class="inputInnerArea">
+                    <md-input-container class="md-block m0">
+                        <label>Password</label>
+                        <input data-ng-model="register.password" type="password" name="password">
+                    </md-input-container>
+                </div>
+                <div layout="column">
+                    <md-button class="md-raised md-primary" type="submit">Login</md-button>
+                </div>
+                <div class="registerBtnArea" data-ng-click="showView('register')">
+                    Register Here
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div class="registerInputArea animationIf" data-ng-if="showRegisterArea">
+        <h1 class="tac lh10">Register Here</h1>
+        <!--<md-button class="md-raised md-primary" type="button" data-ng-click="createExcel($event)">Create Excel</md-button>-->
+        <form name="registerForm" data-ng-submit="submitForm()">
+            <div class="inputArea">
+                <div class="inputInnerArea">
+                    <md-input-container class="md-block m0">
+                        <label>Name</label>
+                        <input data-ng-model="register.name" type="text">
+                    </md-input-container>
+                </div>
+                <div class="inputInnerArea">
+                    <md-input-container class="md-block m0">
+                        <label>Email</label>
+                        <input data-ng-model="register.email" type="email">
+                    </md-input-container>
+                </div>
+
+                <div class="inputInnerArea">
+                    <md-input-container class="md-block m0">
+                        <label>Password</label>
+                        <input data-ng-model="register.password" type="password">
+                    </md-input-container>
+                </div>
+
+                <div class="inputInnerArea">
+                    <md-input-container class="md-block m0">
+                        <label>Mobile Number</label>
+                        <input data-ng-model="register.mobile" type="text">
+                    </md-input-container>
+                </div>
+                <div class="inputInnerArea">
+                    <md-input-container class="md-block m0">
+                        <label>Profession</label>
+                        <input data-ng-model="register.profession" type="text">
+                    </md-input-container>
+                </div>
+                <div layout="column">
+                    <md-button class="md-raised md-primary" type="submit">Register</md-button>
+                </div>
+                <div class="registerBtnArea" data-ng-click="showView('login')">
+                    Back to Login
+                </div>
+            </div>
+        </form>
+    </div>
+    <!--<div class="userListArea">
+        <div class="userListInner">
+            <ul>
+                <li data-ng-repeat="user in userList">
+                    <span data-ng-bind="user.Registered_Date | date:'dd MMM yyyy'"></span>
+                    <span data-ng-bind="user.Name"></span>
+                    <span data-ng-bind="user.Mobile"></span>
+                    <span data-ng-bind="user.Profession"></span>
+                </li>
+            </ul>
+
+        </div>
+    </div>-->
+</div>
+
+<style>
+    .userListArea {
+        position: absolute;
+        top: 0%;
+        left: 100%;
+    }
+
+</style>

@@ -1,0 +1,18 @@
+<div class="pageContainer">
+    <div layout="row" layout-wrap class="md-padding">
+        <div flex="25" class="listArea" flex-xs="100" data-ng-repeat="user in userList track by $index" data-ng-click="messageView(user)" data-ng-if="userData.UserId != user.UserId">
+            <md-card class="listInnerArea">
+                <md-card-title>
+                    <md-card-title-text>
+                        <span class="md-headline" data-ng-bind="user.Name"></span>
+                        <span class="md-subhead" data-ng-bind="user.Mobile"></span>
+                        <span class="md-subhead b" data-ng-bind="user.Profession"></span>
+                    </md-card-title-text>
+                    <md-card-title-media>
+                        <div class="md-media-sm card-media"></div>
+                    </md-card-title-media>
+                </md-card-title>
+            </md-card>
+        </div>
+    </div>
+</div>

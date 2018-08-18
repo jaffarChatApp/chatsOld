@@ -1,0 +1,44 @@
+<div class="headerPanel">
+    <md-toolbar>
+        <div class="md-toolbar-tools p0">
+            <div layout="column" flex-xs="100" flex-sm="100" layout-align="center">
+                <md-button class="md-icon-button" aria-label="Side Panel" ng-click="toggleList()" data-ng-if="showMenuIcon">
+                    <md-icon class="md-default-theme" class="material-icons">&#xE5D2;</md-icon>
+                </md-button>
+                <md-button class="md-icon-button backBtn" aria-label="Side Panel" ng-click="goBack()" data-ng-if="showBackIcon">
+                    <md-icon class="md-default-theme" class="material-icons">&#xE5C4;</md-icon>
+                </md-button>
+            </div>
+            <div class="rightMenuArea">
+                <span data-ng-bind="userData.name"></span>
+                <md-button aria-label="Logout" class="" data-ng-click="logout($event)"> Logout </md-button>
+            </div>
+        </div>
+
+    </md-toolbar>
+</div>
+<md-sidenav class="md-whiteframe-4dp miniMenuBar" md-component-id="left" aria-hidden="true">
+    <div class="nav-header tac customHeader">
+        <img src="app/img/chatLogo.png" width="100px">
+        <!--<div ng-href="/" class="docs-logo" href="/">
+            <h1 class="docs-logotype md-heading">A Human Experience</h1>
+        </div>-->
+    </div>
+
+    <div class="navMenuClass">
+        <md-content>
+            <div class="md-accordion" ng-click="toggleList()">
+                <md-toolbar data-ng-click="dashboard('dashboard')" data-ng-class="{'navParentActive' : selected=='dashboard'}">
+                    <div class="md-toolbar-tools">
+                        <div>
+                            <i class="material-icons">dashboard</i> <span class="navMenu">Dashboard</span>
+                        </div>
+                    </div>
+                </md-toolbar>
+            </div>
+        </md-content>
+    </div>
+</md-sidenav>
+<md-content flex id="content">
+    <div ui-view></div>
+</md-content>
